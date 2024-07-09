@@ -41,7 +41,7 @@ This project is a simple blog application developed using ASP.NET MVC integrated
      ```bash
      dotnet run
      
-   - Alternatively, you can run the project from Visual Studio by opening AspNetMvcBlog.sln and pressing F5.
+   - Alternatively, you can run the project from Visual Studio by opening Blog.sln and pressing F5.
      
 ## Screenshots
 
