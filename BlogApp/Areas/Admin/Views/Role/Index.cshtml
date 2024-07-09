@@ -1,0 +1,28 @@
+@model IEnumerable<IdentityRole>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+         
+            <table class="table table-bordered">
+           
+                <thead>
+                    <tr>
+                        <th>Role</th>
+        
+                    </tr>
+                </thead>
+                <tbody>
+                    @{ var itemCount = 0; }
+                    @foreach (var role in Model)
+                    {
+                        <tr>
+                            @{ itemCount++; }
+                            <td>@role.Name</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

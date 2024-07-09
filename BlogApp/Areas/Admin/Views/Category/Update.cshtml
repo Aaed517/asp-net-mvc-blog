@@ -1,0 +1,19 @@
+@model Category
+
+<h1 class="text-center">Edit Category</h1>
+
+<div class="container mt-4">
+    <form  method="post" asp-area="Admin" asp-controller="Category" asp-action="Update" >
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <input type="hidden" asp-for="@Model.CategoryId" />
+        <div class="form-group mt-3">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </form>
+</div>

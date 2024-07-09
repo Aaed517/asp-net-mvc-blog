@@ -1,0 +1,69 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.custom-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 4px;
+    background-color: #f8f9fa;
+}
+.post-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.post-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    /* Set aspect ratio */
+    max-width: 100%; /* Ensure image doesn't overflow */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Scale image while preserving aspect ratio */
+    aspect-ratio: 2/1; /* 2:1 aspect ratio */
+    border: 5px solid #ccc; /* Example border style */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow effect */
+}
+.post-content {
+    margin-top: 10px;
+}
+.post-meta {
+    color: #777;
+    font-size: 0.9rem;
+}
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.post-footer .icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #007bff; /* Blue color for icons */
+}
+.post-footer .icon:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+.category-label {
+    background-color: rgba(0, 123, 255, 0.2); /* Light blue background with transparency */
+    color: #007bff; /* Blue text color */
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px; /* Add margin for spacing */
+}
+.form-group {
+    margin-bottom: 15px; /* Form grupları arasına boşluk eklemek için */
+}

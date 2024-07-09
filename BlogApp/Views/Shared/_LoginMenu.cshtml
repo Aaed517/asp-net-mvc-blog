@@ -1,0 +1,41 @@
+@{
+    var isAuthenticated = false;
+    var username ="Guest";
+    if(User.Identity !=null)
+    {
+        isAuthenticated = User.Identity.IsAuthenticated;
+        username = User.Identity.Name;
+    }
+  
+    
+}
+
+<ul class="navbar-nav ml-auto">
+    @if (isAuthenticated)
+    {
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                    <i class="fa-solid fa-gear"></i>
+                    Admin</a>
+            </li>
+        }
+
+        <li class="nav-item d-flex align-items-center">
+            <a class="nav-link" href="#">
+                <i class="fas fa-user me-2"></i> @username
+            </a>
+            <a class="nav-link" aria-current="page" asp-area="" asp-controller="Account"
+                asp-route-ReturnUrl="@Context.Request.Path" asp-action="Logout">Logout</a>
+        </li>
+
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" asp-area="" asp-controller="Account"
+        asp-route-ReturnUrl="@Context.Request.Path" asp-action="Login">Login</a>
+        </li>
+    }
+</ul>

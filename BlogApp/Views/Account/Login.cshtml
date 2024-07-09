@@ -1,0 +1,49 @@
+@model LoginModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
+
+
+</head>
+
+<body>
+    <div class="card login-card">
+        <div class="card-body">
+            <h5 class="card-title text-center mb-4">Login</h5>
+            <div class="text-danger" asp-validation-summary="All"></div>
+
+            <form  method="post" asp-controller="Account" asp-action="Login" >
+                <input type="hidden" asp-for="ReturnUrl" />
+                <div class="form-group mb-3">
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="form-group mb-3">
+                      <label asp-for="Password"></label>
+                     <input type="password" asp-for="Password" class="form-control" />
+                </div>
+                <div class="form-group d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg btn-login">Login</button>
+                    <div class="register-link">
+                        <a class="text-decoration-none" asp-action="Register">Register</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/js/site.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+</body>
+
+</html>

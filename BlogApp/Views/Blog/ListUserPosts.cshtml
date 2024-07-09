@@ -1,0 +1,14 @@
+@model IQueryable<Post>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <h2 class="text-center">My Latest Posts</h2>
+            <hr />
+            @foreach (Post pt in Model)
+            {
+                <partial name="_PostCard" model=@pt />
+            }
+        </div>
+    </div>
+</div>
+

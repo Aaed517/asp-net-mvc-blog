@@ -1,0 +1,90 @@
+.navbar-custom {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 10px; 
+}
+.navbar-brand-custom {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    color: #333;
+}
+.nav-link {
+    color: #333 !important;
+    transition: color 0.3s ease;  
+    font-size: 1.1rem; 
+}
+.nav-link:hover {
+    color: #007bff !important;
+    text-decoration: none; 
+}
+.nav-item.active .nav-link {
+    color: #007bff !important;
+}
+.dropdown-menu {
+    background-color: #f8f9fa; 
+    border: 1px solid #ccc; 
+}
+.dropdown-item {
+    color: #333 !important; 
+}
+.dropdown-item:hover {
+    background-color: #007bff !important; 
+    color: #fff !important; 
+}
+.post-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.custom-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 4px;
+    background-color: #f8f9fa;
+}
+.post-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-content {
+    margin-top: 10px;
+}
+.post-meta {
+    color: #777;
+    font-size: 0.9rem;
+}
+.post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+}
+.post-footer .icon {
+    cursor: pointer;
+    margin-left: 10px;
+    color: #007bff; 
+}
+.post-footer .icon:hover {
+    color: #0056b3;
+}
+.category-label {
+    background-color: rgba(0, 123, 255, 0.2);
+    color: #007bff; 
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px; 
+}
+.form-group {
+    margin-bottom: 15px; 
+}

@@ -1,0 +1,100 @@
+@model Dashboard
+@using Newtonsoft.Json
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.min.css">
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box">
+        <span class="info-box-icon bg-info elevation-1"><i class="fas fa-comment"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Comments</span>
+          <span class="info-box-number">@Model.CommentCount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-paper-plane"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Posts</span>
+          <span class="info-box-number">@Model.PostCount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-success elevation-1"><i class="fas fa-user-shield"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Role Count</span>
+          <span class="info-box-number">@Model.RoleCount</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="info-box mb-3">
+        <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">Members</span>
+          <span class="info-box-number">@Model.MembersCount</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Monthly Post Counts</h3>
+        </div>
+        <div class="card-body">
+          <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const data = @Html.Raw(JsonConvert.SerializeObject(Model.PostCountsByMonth));
+        const labels = [];
+        const postCounts = [];
+        const backgroundColors = [];
+        const borderColors = [];
+
+        data.forEach(item => {
+            labels.push(`${item.Month}/${item.Year}`);
+            postCounts.push(item.PostCount);
+            backgroundColors.push('rgba(54, 162, 235, 0.2)');
+            borderColors.push('rgba(54, 162, 235, 1)');
+        });
+
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: '# of Posts',
+                    data: postCounts,
+                    backgroundColor: backgroundColors,
+                    borderColor: borderColors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    });
+</script>

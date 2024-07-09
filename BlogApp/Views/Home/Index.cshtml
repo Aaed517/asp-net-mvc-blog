@@ -1,0 +1,56 @@
+@model IQueryable<Post>
+
+<div class="row">
+    <div class="col-md-4">
+        <hr />
+        @if(ViewBag.mostcommentpost != null)
+        {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="text-center text-primary mb-4">Most Commented Post</h5>
+                <h5 class="card-title">@ViewBag.mostcommentpost.Title</h5>
+                <div class="post-image my-3">
+                    <img src="@ViewBag.mostcommentpost.ImageURL" alt="Random Image" />
+                </div>
+
+                <p class="card-text">@ViewBag.mostcommentpost.Content.Substring(0,
+                    Math.Min(@ViewBag.mostcommentpost.Content.Length, 200))...</p>
+                <a asp-controller="Blog" asp-action="GetOnePost" asp-route-id="@ViewBag.mostcommentpost.PostId"
+                    class="btn btn-primary">Read more</a>
+            </div>
+            <div class="card-footer text-muted">
+                Published on @ViewBag.mostcommentpost.PublishDate.ToShortDateString() by
+                @ViewBag.mostcommentpost.Author.UserName
+            </div>
+        </div>
+        }
+    </div>
+        <div class="col-md-4">
+        <hr />
+        <div class="card mb-4">
+            @if(ViewBag.mostcommetpostofday != null && ViewBag.mostcommetpostofday.Content != null)
+            {
+            <div class="card-body">
+                <h5 class="text-center text-primary mb-4">Most Commented Post Of Today</h5>
+                <h5 class="card-title">@ViewBag.mostcommetpostofday.Title</h5>
+                <div class="post-image my-3">
+                    <img src="@ViewBag.mostcommetpostofday.ImageURL" alt="Random Image" />
+                </div>
+
+                <p class="card-text">@ViewBag.mostcommetpostofday.Content.Substring(0,Math.Min(@ViewBag.mostcommetpostofday.Content.Length, 200))...</p>
+                <a asp-controller="Blog" asp-action="GetOnePost" asp-route-id="@ViewBag.mostcommetpostofday.PostId"
+                    class="btn btn-primary">Read more</a>
+            </div>
+            <div class="card-footer text-muted">
+                Published on @ViewBag.mostcommetpostofday.PublishDate.ToShortDateString() by
+                @ViewBag.mostcommetpostofday.Author.UserName
+            </div>
+            }
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+           <hr />
+        @await Component.InvokeAsync("CategoryMenu")
+    </div>
+</div>

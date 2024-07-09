@@ -1,0 +1,11 @@
+@model IQueryable<Category>
+
+          <div class="col-md-4">
+                     <h3 class="text-center">Categories</h3>
+                <ul class="list-group">
+                    @foreach (Category ct in Model)
+                    {
+                            <li class="list-group-item">@ct.Name</li>
+                    }
+                </ul>
+            </div>

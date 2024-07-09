@@ -1,0 +1,40 @@
+@model Post
+@{
+    var contentLength = ViewData["ContentLength"] as int? ?? 0;
+    var isContentLimited = ViewData["IsContentLimited"] is bool limited ? limited : false;
+}
+@if (Model is not null)
+{
+
+<div class="post-container">
+    <div class="post-title">
+        <h5><a asp-controller="Blog" asp-action="GetOnePost" asp-route-id="@Model.PostId">@Model.Title</a></h5>
+       @if(@Model.Category != null)
+       { 
+        <div class="category-label" style="background-color:@Model.Category.Color;color:White">
+            @Model.Category.Name</div> 
+            }
+    </div>
+    <div class="post-image my-3">
+        <img src="@Model.ImageURL" alt="Random Image" />
+    </div>
+
+      @if (isContentLimited && Model.Content != null)
+    {
+        <p class="post-content">@Html.Raw(Model.Content.Substring(0, Math.Min(Model.Content.Length, contentLength)) + "...")</p>
+    }
+    else
+    {
+        <p class="post-content">@Html.Raw(Model.Content)</p>
+    }
+    <div class="post-footer">
+        <small class="post-meta">Published on @Model.PublishDate by @if(Model.Author != null){@Model.Author.UserName}</small>
+        <div>
+            <i class="fas fa-thumbs-up icon fa-lg" title="Like"></i>
+                             <partial name="_CommentPopUp"  model="Model"/>
+
+
+        </div>
+    </div>
+</div>
+}

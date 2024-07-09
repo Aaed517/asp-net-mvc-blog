@@ -1,0 +1,18 @@
+ 
+# Ignore data directory inside blog/blogapp
+blog/blogapp/data/
+
+# Ignore Visual Studio files and folders
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore database files
+*.mdf
+*.ldf
+
+
+# Ignore build output
+bin/
+obj/

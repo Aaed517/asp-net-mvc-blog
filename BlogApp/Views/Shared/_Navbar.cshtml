@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-custom" href="#">My Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-box"  asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-box" asp-controller="Post" asp-action="Index">
+                            <i class="fas fa-info-circle"></i> Latest Posts
+                        </a>
+                    </li>
+                    @if(User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                            <li class="nav-item">
+                        <a class="nav-link nav-link-box" asp-controller="Post" asp-action="ListUserPosts">
+                            <i class="fas fa-info-circle"></i> My Post Lists
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-box" asp-controller="Post" asp-action="Create">
+                            <i class="fas fa-envelope"></i> Create Post
+                        </a>
+                    </li>
+                    }
+                </ul>
+                <ul class="navbar-nav">
+                  
+                            <partial name="_LoginMenu" />
+                 
+                </ul>
+            </div>
+        </div>
+    </nav>

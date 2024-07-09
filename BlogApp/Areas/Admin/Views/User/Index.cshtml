@@ -1,0 +1,59 @@
+@model IEnumerable<UserWithRolesViewModel>
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">Users Lists</h2>
+    <div class="mb-4">
+        <a href="@Url.Action("Create", "User")" class="btn btn-primary">Create User</a>
+    </div>
+    <table class="table table-striped table-bordered border-primary">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">UserName</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>
+                    @if(user.Roles != null)
+                    {
+                        @if (user.Roles.Contains("Admin"))
+                        {
+                            <span style="color: red;">@user.Roles.First()</span>
+                        }
+                        else if (user.Roles.Contains("User"))
+                        {
+                            <span style="color: green;">@user.Roles.First()</span>
+                        }
+                        else
+                        {
+                            <span>Unknown</span>
+                        }
+                     }   
+                    </td>
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-primary mb-2" asp-area="Admin" asp-controller="User" asp-action="Update" asp-route-id="@user.UserName">
+                                <i class="fas fa-edit"></i> Edit <!-- Edit ikonu -->
+                            </a>
+                            <form method="post" asp-action="DeleteOneUser" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                <input type="hidden" name="UserName" value="@user.UserName" />
+                                <button type="submit" class="btn btn-danger rounded-0">
+                                    <i class="fas fa-trash-alt"></i> Delete 
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

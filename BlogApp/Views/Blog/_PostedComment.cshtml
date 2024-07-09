@@ -1,0 +1,24 @@
+@model Post
+
+<div class="container">
+    <hr />
+    <h4>Comments:</h4>
+    @if(Model.Comments.Count > 0)
+    {
+        foreach (var comment in Model.Comments)
+        {
+            @comment.Content
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title" style="border: 2px solid orange; padding: 5px; border-radius: 5px;">@comment.Author</h5>
+                    <p class="card-text" style="border: 1px solid #ccc; padding: 10px; border-radius: 5px;">@comment.Content</p>
+                    <p class="card-text"><small class="text-muted">Published on @comment.PublishDate.ToString("MMM dd, yyyy") by @comment.Author</small></p>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No comments yet.</p>
+    }
+</div>

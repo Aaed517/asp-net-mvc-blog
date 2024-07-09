@@ -1,0 +1,34 @@
+body {
+  background-color: #f8f9fa;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-card {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.login-card form {
+  margin-top: 2rem;
+}
+.login-card .form-control {
+  height: 60px;
+  font-size: 1.2rem; /
+}
+.login-card .card-title {
+  font-size: 2rem; 
+  margin-bottom: 2rem; 
+}
+.login-card .register-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.login-card .btn-login {
+  margin-top: 1rem; 
+}

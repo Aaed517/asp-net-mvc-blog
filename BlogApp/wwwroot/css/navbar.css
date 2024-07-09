@@ -1,0 +1,34 @@
+.navbar-custom {
+    background-color: #f8f9fa; /* Light gray background */
+    border: 1px solid #ddd; /* Light gray border */
+    padding: 10px 20px; /* Padding around navbar content */
+    border-radius: 10px; /* Rounded corners */
+}
+.navbar-brand-custom {
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Dark gray text color */
+}
+.nav-link {
+    color: #333 !important; /* Dark gray text color */
+}
+.nav-link:hover {
+    color: #007bff !important; /* Blue color on hover */
+}
+.dropdown-menu {
+    background-color: #f8f9fa; /* Light gray background for dropdown */
+    border: 1px solid #ccc; /* Light border */
+}
+.dropdown-item {
+    color: #333 !important; /* Dark gray text color */
+}
+.dropdown-item:hover {
+    background-color: #007bff !important; /* Blue background on hover */
+    color: #fff !important; /* White text color on hover */
+}
+.post-container {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
