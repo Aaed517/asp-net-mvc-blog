@@ -22,7 +22,7 @@ This project is a simple blog application developed using ASP.NET MVC integrated
 
 1. **Clone the Project:**
    ```bash
-   git clone https://github.com/Aaed517/aspnet-mvc-blog.git
+   git clone https://github.com/Aaed517/asp-net-mvc-blog.git
    
 2. **Extract the Project:**
    Extract the downloaded project files to your desired directory.
